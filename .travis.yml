@@ -1,0 +1,14 @@
+language: scala
+sudo: false
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+jdk:
+  - oraclejdk8
+scala:
+  - 2.11.7
+  - 2.10.5
+script:
+  - sbt ++$TRAVIS_SCALA_VERSION test:compile
+  - ./setup-forego.sh && ./setup-kafka.sh && ./forego start
+  - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm

@@ -43,6 +43,7 @@ sonatypeSettings ++ scalariformSettings ++ Seq(
   homepage := Some(url("https://github.com/softwaremill/reactive-kafka")),
   scalaVersion := "2.11.7",
   crossScalaVersions := Seq("2.10.5", "2.11.7"),
+  parallelExecution in Test := false,
   scalacOptions ++= Seq(
   "-deprecation",
   "-encoding", "UTF-8",       // yes, this is 2 args

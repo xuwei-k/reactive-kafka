@@ -11,4 +11,5 @@ scala:
 script:
   - sbt ++$TRAVIS_SCALA_VERSION test:compile
   - ./setup-forego.sh && ./setup-kafka.sh && ./forego start
+  - sbt ++$TRAVIS_SCALA_VERSION test
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
